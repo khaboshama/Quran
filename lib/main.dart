@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:quran/presentation/search/screen/search_view.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Quran'),
+      home: const SearchView(),
     );
   }
 }
