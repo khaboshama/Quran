@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quran/presentation/search/module/data/repository/QuranProviderImpl.dart';
 import 'package:quran/presentation/search/screen/search_view.dart';
+import 'package:quran/services/bloc/quran_bloc.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -15,7 +19,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const SearchView(),
+      home: BlocProvider<QuranBloc>(
+        create: (context) => QuranBloc(QuranProviderImpl()),
+        child: const SearchView(),
+      ),
     );
   }
 }
@@ -31,7 +38,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final int _counter = 0;
-
 
   @override
   Widget build(BuildContext context) {
