@@ -7,7 +7,7 @@ class QuranService implements QuranProvider {
 
   const QuranService(this._quranProvider);
 
-  factory QuranService.firebase() => QuranService(QuranProviderImpl());
+  factory QuranService.provider() => QuranService(QuranProviderImpl());
 
   @override
   Future<List<AyaItem>> searchByKeyword({required String keyword}) {

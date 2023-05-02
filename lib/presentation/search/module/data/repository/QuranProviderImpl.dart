@@ -9,7 +9,7 @@ import 'package:quran/presentation/search/module/domain/aya_item.dart';
 class QuranProviderImpl implements QuranProvider {
   @override
   Future<List<AyaItem>> searchByKeyword({required String keyword}) async {
-    final response = await http.get(Uri.parse(searchUrl));
+    final response = await http.get(Uri.parse("$baseUrl" + "search/$keyword/all/en"));
 
     if (response.statusCode == 200) {
       final searchAyaResponse =

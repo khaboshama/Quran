@@ -15,7 +15,7 @@ class SearchAyaResponse {
       SearchAyaResponse(
           code: json["code"],
           status: json["status"],
-          searchAyaDataResponse: json["data"]
+          searchAyaDataResponse: SearchAyaDataResponse.fromJson(json["data"])
       );
 }
 

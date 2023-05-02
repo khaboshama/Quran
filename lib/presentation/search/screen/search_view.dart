@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:quran/presentation/search/module/view/aya_item_view.dart';
 import 'package:quran/presentation/search/screen/aya_list_view.dart';
-
+import 'package:quran/services/bloc/quran_bloc.dart';
+import 'package:quran/services/bloc/quran_event.dart';
 class SearchView extends StatefulWidget {
   final List<AyaItemView> items;
 
@@ -12,6 +14,13 @@ class SearchView extends StatefulWidget {
 }
 
 class _SearchViewState extends State<SearchView> {
+
+  @override
+  void initState() {
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,6 +30,7 @@ class _SearchViewState extends State<SearchView> {
           TextField(
               onChanged: (text) {
                 print(text);
+                context.read<QuranBloc>().add(QuranEventSearch(text));
               },
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
@@ -29,7 +39,8 @@ class _SearchViewState extends State<SearchView> {
           const Text("kk"),
           Expanded(
             child: AyaListView(
-                items: List<String>.generate(200, (i) => 'Item $i')),
+              items: widget.items,
+            ),
           ),
         ],
       ),

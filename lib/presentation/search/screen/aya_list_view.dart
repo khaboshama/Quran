@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:quran/presentation/search/module/view/aya_item_view.dart';
 
 class AyaListView extends StatelessWidget {
-  final List<String> items;
+  final List<AyaItemView> items;
 
   const AyaListView({super.key, required this.items});
 
@@ -13,7 +14,7 @@ class AyaListView extends StatelessWidget {
       itemCount: items.length,
       itemBuilder: (context, index) {
         return ListTile(
-          title: Text(items[index]),
+          title: Text(items[index].content),
         );
       },
     );
