@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:quran/presentation/search/module/view/aya_item_view.dart';
 import 'package:quran/presentation/search/screen/aya_list_view.dart';
 
 class SearchView extends StatefulWidget {
-  const SearchView({Key? key}) : super(key: key);
+  final List<AyaItemView> items;
+
+  const SearchView({Key? key, required this.items}) : super(key: key);
 
   @override
   State<SearchView> createState() => _SearchViewState();
