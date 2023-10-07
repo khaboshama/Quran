@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quran/presentation/search/module/view/aya_item_view.dart';
 import 'package:quran/presentation/search/screen/aya_list_view.dart';
 import 'package:quran/services/bloc/quran_bloc.dart';
