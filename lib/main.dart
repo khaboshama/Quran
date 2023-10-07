@@ -42,20 +42,10 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<QuranBloc, QuranState>(builder: (context, state) {
-      if (state is QuranStateLoading) {
-        if (state.exception != null) {
-          return Scaffold(
-            body: Text(state.exception!.toString()),
-          );
-        } else if (state.isLoading) {
-          return const Scaffold(
-            body: CircularProgressIndicator(),
-          );
-        } else {
-          return SearchView(items: List<AyaItemView>.empty());
-        }
-      } else if (state is QuranStateSearchSuccess) {
+      if (state is QuranStateSearchSuccess) {
         return SearchView(items: state.ayaList);
+      } else if (state is QuranStateSearchFailed){
+        return SearchView(items: List<AyaItemView>.empty());
       } else {
         return SearchView(items: List<AyaItemView>.empty());
       }

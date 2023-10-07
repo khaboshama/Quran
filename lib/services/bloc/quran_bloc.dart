@@ -15,7 +15,7 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
             list.map((ayaItem) => ayaItem.toAyaItemView()).toList();
         emit(QuranStateSearchSuccess(ayaList: ayaItemViewList));
       } on Exception catch (e) {
-        emit(QuranStateLoading(isLoading: false, exception: e));
+        emit(QuranStateSearchFailed(errorMessage: e.toString()));
       }
     });
   }

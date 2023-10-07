@@ -20,3 +20,9 @@ class QuranStateSearchSuccess extends QuranState {
 
   const QuranStateSearchSuccess({required this.ayaList});
 }
+
+class QuranStateSearchFailed extends QuranState {
+  final String errorMessage;
+
+  const QuranStateSearchFailed({required this.errorMessage});
+}
